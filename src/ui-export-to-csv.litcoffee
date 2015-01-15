@@ -45,10 +45,14 @@
             data=[]
             header = []
             ignoreFields = []
-            @data = eval("document.querySelector('##{dataSrcId}').#{dataSrcAttr}")
-            debugger
 
-            @ignoreFields.split(',').forEach (i) =>
+            if @dataSrcId and @dataSrcAttr
+                @data = document.querySelector('#'+@dataSrcId)?[@dataSrcAttr]
+
+            if !@data
+                return false
+
+            @ignoreFields?.split(',').forEach (i) =>
                 ignoreFields.push i.trim()
 
             Object.keys(@data[0]).forEach (i) =>
@@ -67,29 +71,4 @@
                 data.push(dataobj)
 
             @downloadExcelCsv(data, 'clientcontacts-list.csv')
-            
 
-#client-interest-match
-*TODO* tell me all about your element.
-
-
-    Polymer 'client-interest-match',
-
-##Events
-*TODO* describe the custom event `name` and `detail` that are fired.
-
-##Attributes and Change Handlers
-
-##Methods
-
-        saveToExcel: (event, detail, element) ->
-            debugger
-            event.path[0].data = @$.table.value
-            event.path[0].downloadCsv()
-
-
-##Polymer Lifecycle
-
-        ready: ->
-            if !@height
-                @height = "30em"
