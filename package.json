@@ -2,9 +2,9 @@
   "name": "ui-export-to-csv",
   "version": "0.0.0",
   "dependencies": {
-    "polymer": "git://github.com/custom-elements/polymer",
+    "polymer": "git+https://github.com/custom-elements/polymer",
     "polymer-serve": "^0.0.30",
-    "ui-button": "git://github.com/Custom-Elements/ui-button.git"
+    "ui-button": "git+https://github.com/Custom-Elements/ui-button.git"
   },
   "license": "ISC",
   "scripts": {
